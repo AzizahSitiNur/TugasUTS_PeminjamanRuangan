@@ -39,6 +39,12 @@
                 </a>
             @endif
 
+            <p>
+                <x-primary-button class="ms-3">
+                <a href="{{ route('register') }}">Daftar sekarang</a>
+            </x-primary-button>
+            </p>
+
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
