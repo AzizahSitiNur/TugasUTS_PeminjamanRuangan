@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\LaporanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +47,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user/ruangan', [RuanganController::class, 'indexUser'])->name('user.ruangan.index');
 });
 
+Route::middleware(['auth', 'is_admin'])->group(function () {
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+    Route::get('/laporan/export', [LaporanController::class, 'exportPdf'])->name('laporan.export');
+});
 require __DIR__.'/auth.php';
